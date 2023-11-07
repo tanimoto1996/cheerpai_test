@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<ruleset name="phpmd ルールセットのサンプル" xmlns="http://pmd.sf.net/ruleset/1.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd"
+         xsi:noNamespaceSchemaLocation=" http://pmd.sf.net/ruleset_xml_schema.xsd">
+    <description>phpmd ルールセットのサンプル</description>
+
+    <!-- 以下ルールセット -->
+    <!-- see: https://phpmd.org/rules/index.html#code-size-rules -->
+    <rule ref="rulesets/cleancode.xml">
+        <!-- 有効なルール
+            DuplicatedArrayKey … 配列のキーが重複している場合エラー
+            UnknownVariable … 未定義の変数を使用した場合エラー
+            ErrorControlOperator … @を使用してエラーを隠そうとした場合エラー
+        -->
+        <exclude name="StaticAccess" />
+        <exclude name="BooleanArgumentFlag" />
+        <exclude name="ElseExpression" />
+        <exclude name="MissingImport" />
+    </rule>
+
+    <!-- codesizeのルールはすべて有効 -->
+    <rule ref="rulesets/codesize.xml">
+    </rule>
+
+    <!-- designルールはすべて有効 -->
+    <rule ref="rulesets/design.xml">
+    </rule>
+
+    <!-- unusedcodeルールは UnusedFormalParameter 以外有効 -->
+    <rule ref="rulesets/unusedcode.xml">
+        <!-- 有効なルール
+            UnusedLocalVariable … 未使用のローカル変数がある場合エラー
+            UnusedPrivateField … 未使用のプライベートフィールドがある場合エラー
+            UnusedPrivateMethod … 未使用のプライベートメソッドがある場合エラー
+            UnusedPrivateProperty … 未使用のプライベートプロパティがある場合エラー
+            UnusedFormalParameter … 未使用の引数がある場合エラー
+        -->
+        <exclude name="UnusedFormalParameter"/>
+    </rule>
+
+    <!-- 除外するディレクトリ・ファイル設定 -->
+    <exclude-pattern>node_modules</exclude-pattern>
+    <exclude-pattern>storage</exclude-pattern>
+    <exclude-pattern>vendor</exclude-pattern>
+    <exclude-pattern>migrations</exclude-pattern>
+    <exclude-pattern>app/Http/Controllers/Controller.php</exclude-pattern>
+</ruleset>
