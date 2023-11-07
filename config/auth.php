@@ -75,7 +75,7 @@ return [
             'throttle' => 60,
         ],
         'staff' => [
-            'provider' => 'staffs',
+            'provider' => 'staff',
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,
