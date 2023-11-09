@@ -27,7 +27,7 @@ export default defineConfig({
         watch: {
             usePolling: true,
         },
-        port: 5175
+        port: 5176
     },
     ssr: {
         noExternal: ['@inertiajs/server'],
