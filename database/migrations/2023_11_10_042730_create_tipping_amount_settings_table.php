@@ -11,17 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admins', function (Blueprint $table) {
-            $table->comment('管理者会員情報');
-        
+        Schema::create('tipping_amount_settings', function (Blueprint $table) {
+            $table->comment('投げ銭金額設定');
+            
             // IDや認証に関連するカラム
-            $table->increments('admin_id')->comment('管理者ID');
-            $table->string('name', 50)->comment('管理者名');
-            $table->string('password', 100)->comment('パスワード');
-        
+            $table->increments('setting_id')->comment('投げ銭金額設定ID');
+            
             // 設定や状態に関連するフラグなど
-            $table->integer('role')->default(1)->comment('権限: 1:基本権限');
-        
+            $table->integer('amount')->comment('投げ銭額: 300（pt）など単体で設定する');
+
             // タイムスタンプ
             $table->timestamps();
         });
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('tipping_amount_settings');
     }
 };
