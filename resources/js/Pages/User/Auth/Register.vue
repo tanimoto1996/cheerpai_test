@@ -11,6 +11,7 @@ const form = useForm({
   email: "",
   password: "",
   password_confirmation: "",
+  birthdate: "",
 });
 
 const submit = () => {
@@ -84,6 +85,15 @@ const submit = () => {
         />
 
         <InputError class="mt-2" :message="form.errors.password_confirmation" />
+      </div>
+
+
+
+      <div class="mt-4">
+        <div class="mt-1 block w-full">
+          <label for="birthdate">生年月日</label>
+          <input id="birthdate" name="birthdate" type="date" v-model="form.birthdate" required>
+        </div>
       </div>
 
       <div class="flex items-center justify-end mt-4">
